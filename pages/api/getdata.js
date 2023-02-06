@@ -3,14 +3,14 @@ import mysql2 from "mysql2/promise";
 export default async function handler(req, res) {
   const dbconnection = await mysql2.createConnection({
     host: "localhost",
-    database: "thaimaiyudan",
-    port: 3307,
+    database: "test",
+    // port: 3306,
     user: "root",
     password: "",
     // socketPath: "/Applications/MAMP/tmp/mysql/mysql.sock",
   });
   try {
-     const query = "SELECT name, email FROM users";
+     const query = "SELECT id, country_name FROM country";
      const values = [];
      const [data] = await dbconnection.execute(query, values);
     dbconnection.end();
